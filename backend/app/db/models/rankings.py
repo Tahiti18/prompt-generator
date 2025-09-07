@@ -1,9 +1,8 @@
-from sqlalchemy import ForeignKey, Integer, Float
+from datetime import datetime
+from sqlalchemy import ForeignKey, Integer, Float, DateTime
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.sql import func
-from sqlalchemy import DateTime
 from ..base import Base
-
 class Ranking(Base):
     __tablename__ = "rankings"
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
@@ -11,4 +10,4 @@ class Ranking(Base):
     global_rank: Mapped[int | None] = mapped_column(Integer, nullable=True)
     per_topic_rank: Mapped[int | None] = mapped_column(Integer, nullable=True)
     score: Mapped[float | None] = mapped_column(Float, nullable=True)
-    created_at: Mapped = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
