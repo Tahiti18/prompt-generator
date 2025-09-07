@@ -30,8 +30,8 @@ ASYNC_URL = _to_async_url(DATABASE_URL)
 if not ASYNC_URL:
     # Fail fast with a clear error instead of a cryptic async driver crash.
     raise RuntimeError(
-        "DATABASE_URL is not set. Link your Railway Postgres and/or set DATABASE_URL env. "
-        "Expected a value like 'postgresql://user:pass@host:5432/dbname'."
+        "DATABASE_URL is not set. Link Railway Postgres and/or set DATABASE_URL. "
+        "Expected like 'postgresql://user:pass@host:5432/dbname'."
     )
 
 # Create async engine/sessionmaker using asyncpg
